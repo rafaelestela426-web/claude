@@ -94,7 +94,7 @@
       splitLine: { start: 8.35, dur: 0.6, branchAt: 8.75 }, // linha que atravessa o centro (S2→S3)
       spinStart: 9.0, // caos começa a girar ao redor da câmera
       dimStart: FREEZE + FREEZE_HOLD, // elementos congelados perdem a luz
-      dimEnd: FREEZE + FREEZE_HOLD + 0.95,
+      dimEnd: FREEZE + FREEZE_HOLD + 1.4,
       particlesAppear: [FREEZE + FREEZE_HOLD - 0.1, FREEZE + FREEZE_HOLD + 0.7],
       particlesFlow: { start: 13.6, spread: 1.5, dur: 2.0 }, // trajetórias ordenadas
       linesAlign: [13.0, 14.9], // linhas caóticas → raios ordenados

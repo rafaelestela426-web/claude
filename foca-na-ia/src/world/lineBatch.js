@@ -34,7 +34,7 @@ export class LineBatch {
   }
 
   /** points: array de THREE.Vector3; desenha o trecho entre as frações a..b */
-  add(points, a, b, intensity, fade = null) {
+  add(points, a, b, intensity, fade = null, atten = null) {
     if (intensity <= 0.001 || b <= a) return;
     const last = points.length - 1;
     const fa = a * last;
@@ -55,8 +55,12 @@ export class LineBatch {
       this.pos[o + 4] = p.y + (q.y - p.y) * s1;
       this.pos[o + 5] = p.z + (q.z - p.z) * s1;
       // fade opcional ao longo da linha (ex.: ponta mais brilhante)
-      const k0 = fade ? fade((i + s0) / last) * intensity : intensity;
-      const k1 = fade ? fade((i + s1) / last) * intensity : intensity;
+      let k0 = fade ? fade((i + s0) / last) * intensity : intensity;
+      let k1 = fade ? fade((i + s1) / last) * intensity : intensity;
+      if (atten) {
+        k0 *= atten(this.pos[o + 2]);
+        k1 *= atten(this.pos[o + 5]);
+      }
       this.col[o] = this.col[o + 1] = this.col[o + 2] = k0;
       this.col[o + 3] = this.col[o + 4] = this.col[o + 5] = k1;
       this.n++;

@@ -211,7 +211,7 @@ async function build() {
     bloom.strength = L.bloom;
 
     atmosphere.update(t, L, r);
-    chaos.update(t, L);
+    chaos.update(t, L, camera.position.z);
     book.update(t, L);
     knowledge.update(t);
 

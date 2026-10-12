@@ -238,18 +238,22 @@ export function createChaos({ T, camTrack, resolution }) {
     return out;
   }
   const ws = { pos: new THREE.Vector3(), rot: new THREE.Euler(), scale: 1, vis: 0 };
+  // tudo que se aproxima do plano da câmera se apaga antes de atravessá-lo (sem “pop”)
+  let camZCur = 1e9;
+  const nearFade = (z) => smooth((camZCur - z - 0.6) / 3.2);
 
-  function update(t, L) {
+  function update(t, L, camZNow) {
     const tau = Math.min(t, F);
+    camZCur = camZNow;
     group.rotation.z = spinAt(tau);
     const dim = 1 - window01(t, W.dimStart, W.dimEnd);
-    const darken = 1 - window01(t, W.dimStart - 0.1, W.dimStart + 0.5);
+    const darken = 1 - window01(t, W.dimStart - 0.1, W.dimStart + 1.0);
     for (const w of windows) {
       windowState(w, tau, t, ws);
       w.mesh.position.copy(ws.pos);
       w.mesh.rotation.copy(ws.rot);
       w.mesh.scale.setScalar(ws.scale);
-      const op = ws.vis * w.peak * clamp(L.chaos, 0, 1.1) * dim;
+      const op = ws.vis * w.peak * clamp(L.chaos, 0, 1.1) * dim * nearFade(ws.pos.z);
       w.material.opacity = op;
       w.material.color.setScalar(lerp(0.25, 1, darken));
       w.mesh.visible = op > 0.003;
@@ -281,7 +285,7 @@ export function createChaos({ T, camTrack, resolution }) {
       const inten = l.int * Math.max(chaosI * (1 - align), orderI) * (1 - fadeK);
       // ao apagar, cada raio se recolhe em direção a P
       const a = align > 0.5 ? fadeK * 0.98 : 0;
-      (l.hero && align < 0.5 ? heroBatch : batch).add(l.pts, a, prog, inten, l.fade);
+      (l.hero && align < 0.5 ? heroBatch : batch).add(l.pts, a, prog, inten, l.fade, nearFade);
     }
     heroBatch.end();
     batch.end();

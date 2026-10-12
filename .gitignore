@@ -2,4 +2,5 @@ node_modules/
 foca-na-ia/snapshots/
 foca-na-ia/.hyperframes/
 *.log
-foca-na-ia/renders/*.mp4
+foca-na-ia/renders/master-*.mp4
+foca-na-ia/renders/work-*/

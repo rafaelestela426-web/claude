@@ -14,7 +14,15 @@ npm run check     # lint + runtime + layout + contraste
 npm run dev       # Studio de pré-visualização (no navegador)
 npm run render    # gera o MP4 (padrão em renders/)
 # ou, com nome de saída explícito:
-npx hyperframes@0.8.150 render -o renders/foca-na-ia.mp4
+npx hyperframes@0.8.150 render -o renders/master-foca-na-ia.mp4
+```
+
+Render local (Linux, GPU por software/SwiftShader): ~17 min para 900 frames. O master sai com ~330 MB;
+a versão de entrega `renders/foca-na-ia.mp4` é recodificada com H.264 a 10 Mb/s (2 passadas):
+
+```bash
+ffmpeg -i renders/master-foca-na-ia.mp4 -c:v libx264 -preset slow -b:v 10M -pass 1 -an -f null /dev/null
+ffmpeg -i renders/master-foca-na-ia.mp4 -c:v libx264 -preset slow -b:v 10M -maxrate 14M -bufsize 20M -pass 2 -pix_fmt yuv420p -movflags +faststart renders/foca-na-ia.mp4
 ```
 
 Frames de verificação: `npx hyperframes@0.8.150 snapshot --at 4,8.6,12.4,13.3,17,23.4,27,29.9`
