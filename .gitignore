@@ -1,0 +1,5 @@
+node_modules/
+foca-na-ia/snapshots/
+foca-na-ia/.hyperframes/
+*.log
+foca-na-ia/renders/*.mp4

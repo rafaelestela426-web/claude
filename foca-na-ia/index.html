@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>FOCA NA IA — Comercial do e-book</title>
+    <style>
+      @font-face {
+        font-family: "Unbounded";
+        font-weight: 300;
+        src: url("assets/fonts/unbounded-latin-300-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Unbounded";
+        font-weight: 500;
+        src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Unbounded";
+        font-weight: 700;
+        src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 300;
+        src: url("assets/fonts/inter-latin-300-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 400;
+        src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 500;
+        src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-weight: 400;
+        src: url("assets/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-weight: 500;
+        src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+      }
+    </style>
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="src/config/timeline.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/vendor/three/three.module.js",
+          "three/addons/": "./assets/vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+      <!-- MUNDO 3D CONTÍNUO (não é clip: existe do primeiro ao último frame) -->
+      <div id="stage"><canvas id="gl" width="1080" height="1920" data-layout-allow-overflow></canvas></div>
+
+      <!-- S1 · O PRIMEIRO SINAL (0–4 s) -->
+      <section id="s1" class="clip seq" data-start="0" data-duration="4.3" data-track-index="1">
+        <div class="cam">
+          <div id="caret0"></div>
+          <div class="slot slot-center">
+            <h1 class="line size-l type" data-cue="t-s1" data-split>Você quer usar IA no marketing?</h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- S2 · O PROBLEMA CRESCE (4–9 s) -->
+      <section id="s2" class="clip seq" data-start="4" data-duration="5.1" data-track-index="2">
+        <div class="cam">
+          <div class="slot slot-center">
+            <h2 class="line size-l" data-cue="t-s2" data-split>Mas não sabe por onde começar?</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- S3 · O PONTO DE RUPTURA (9–13 s) -->
+      <section id="s3" class="clip seq" data-start="9" data-duration="5" data-track-index="1">
+        <div class="cam">
+          <div class="slot slot-mid" data-layout-allow-overlap>
+            <h2 class="line size-xl strong" data-cue="t-s3a" data-split>Informação demais.</h2>
+          </div>
+          <div class="slot slot-mid" data-layout-allow-overlap>
+            <h2 class="line size-xl strong" data-cue="t-s3b" data-split>Direção de menos.</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4 · A TRANSFORMAÇÃO (13–17 s) -->
+      <section id="s4" class="clip seq" data-start="13.5" data-duration="3.9" data-track-index="2">
+        <div class="cam">
+          <div class="slot slot-top" data-layout-allow-overlap>
+            <h2 class="line size-m light" data-cue="t-s4a" data-split>Você não precisa de mais confusão.</h2>
+          </div>
+          <div class="slot slot-top" data-layout-allow-overlap>
+            <h2 class="line size-l strong" data-cue="t-s4b" data-split>Precisa de direção.</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- S5 · REVELAÇÃO DO PRODUTO (17–23 s) -->
+      <section id="s5" class="clip seq" data-start="17" data-duration="6.2" data-track-index="1">
+        <div class="cam">
+          <div class="slot slot-low">
+            <p class="line size-s" data-cue="t-s5a" data-split>Conheça o e-book</p>
+            <h2 class="brand" data-cue="t-s5b">FOCA NA IA</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- S6 · O CONHECIMENTO EM AÇÃO (23–27 s) -->
+      <section id="s6" class="clip seq" data-start="23" data-duration="4" data-track-index="2">
+        <div class="cam">
+          <div class="slot slot-top">
+            <h2 class="line size-m strong" data-cue="t-s6" data-split>Transforme ideias em ações.</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- S7 · ASSINATURA DA MARCA (27–30 s) -->
+      <section id="s7" class="clip seq" data-start="27" data-duration="3" data-track-index="1">
+        <div class="cam">
+          <div class="slot slot-low">
+            <h2 class="brand brand-sm" data-cue="t-s7a">FOCA NA IA</h2>
+            <div class="slogan" data-cue="t-s7b"><p data-split>Menos confusão.</p><p data-split>Mais possibilidades.</p></div>
+            <div class="cta" data-cue="t-s7c">CONHEÇA O E-BOOK</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- acabamento de lente: constante no filme inteiro -->
+      <div id="fx" data-layout-allow-occlusion>
+        <div id="vignette" data-layout-allow-occlusion></div>
+        <div id="grain" data-layout-allow-occlusion></div>
+      </div>
+    </div>
+
+    <script>
+      // ------------------------------------------------------------------
+      // TIMELINE DOS TEXTOS — construída a partir de window.FOCA_TIMELINE.text
+      // ------------------------------------------------------------------
+      (function () {
+        const T = window.FOCA_TIMELINE;
+        const tl = gsap.timeline({ paused: true });
+        const q = (id) => document.querySelector('[data-cue="' + id + '"]');
+
+        // PRNG com semente (determinismo)
+        let seed = 9001;
+        const rnd = () => {
+          seed = (seed + 0x6d2b79f5) >>> 0;
+          let t = seed;
+          t = Math.imul(t ^ (t >>> 15), t | 1);
+          t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+
+        // divide em palavras (sem quebra interna) e letras
+        document.querySelectorAll("[data-split]").forEach((el) => {
+          const words = el.textContent.trim().split(/\s+/);
+          el.textContent = "";
+          words.forEach((w, i) => {
+            const ws = document.createElement("span");
+            ws.className = "w";
+            for (const c of w) {
+              const cs = document.createElement("span");
+              cs.className = "ch";
+              cs.textContent = c;
+              ws.appendChild(cs);
+            }
+            el.appendChild(ws);
+            if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+          });
+        });
+
+        const chars = (el) => el.querySelectorAll(".ch");
+
+        function enter(cue) {
+          const el = q(cue.id);
+          const t0 = cue.in;
+          if (cue.style === "type") {
+            // cursor nasce no ponto de luz, pisca, e a digitação começa
+            const caret = document.getElementById("caret0");
+            tl.fromTo(caret, { opacity: 0, scaleY: 0.2 }, { opacity: 1, scaleY: 1, duration: 0.18, ease: "power2.out" }, 0.75);
+            tl.to(caret, { opacity: 0.15, duration: 0.14, repeat: 1, yoyo: true, ease: "steps(1)" }, 0.98);
+            tl.to(caret, { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, t0 - 0.05);
+            const cs = chars(el);
+            const step = 1.05 / cs.length;
+            tl.set(cs, { opacity: 0 }, 0);
+            cs.forEach((c, i) => {
+              const at = t0 + i * step;
+              tl.set(c, { opacity: 1, borderRightColor: "rgba(255,255,255,0.95)" }, at);
+              if (i < cs.length - 1) tl.set(c, { borderRightColor: "rgba(255,255,255,0)" }, at + step);
+            });
+            const last = cs[cs.length - 1];
+            const end = t0 + cs.length * step;
+            tl.to(last, { borderRightColor: "rgba(255,255,255,0)", duration: 0.12, repeat: 3, yoyo: true, ease: "steps(1)" }, end + 0.2);
+            tl.set(last, { borderRightColor: "rgba(255,255,255,0)" }, end + 0.75);
+            return;
+          }
+          if (cue.style === "rise") {
+            tl.fromTo(
+              chars(el),
+              { opacity: 0, y: 42, filter: "blur(12px)" },
+              { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.022, ease: "power3.out" },
+              t0,
+            );
+            return;
+          }
+          if (cue.style === "slam") {
+            tl.fromTo(
+              chars(el),
+              { opacity: 0, scale: 1.7, filter: "blur(16px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.34, stagger: 0.014, ease: "expo.out" },
+              t0,
+            );
+            return;
+          }
+          if (cue.style === "calm") {
+            // letras chegam de um espaçamento aberto até o desenho final (x por letra)
+            const cs = chars(el);
+            const mid = (cs.length - 1) / 2;
+            tl.fromTo(
+              cs,
+              { opacity: 0, x: (i) => (i - mid) * 14, filter: "blur(10px)" },
+              { opacity: 1, x: 0, filter: "blur(0px)", duration: 1.0, stagger: 0.01, ease: "power2.out" },
+              t0,
+            );
+            return;
+          }
+          if (cue.style === "brand") {
+            tl.fromTo(
+              el,
+              { opacity: 0, clipPath: "inset(0% 50% 0% 50%)", scale: 1.08, filter: "blur(10px) drop-shadow(0 0 18px rgba(230,236,242,0.25))" },
+              {
+                opacity: 1,
+                clipPath: "inset(0% 0% 0% 0%)",
+                scale: 1,
+                filter: "blur(0px) drop-shadow(0 0 18px rgba(230,236,242,0.25))",
+                duration: 0.9,
+                ease: "power3.out",
+              },
+              t0,
+            );
+            // brilho prateado atravessando a marca
+            tl.fromTo(el, { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut" }, t0 + 0.35);
+            return;
+          }
+          if (cue.style === "cta") {
+            tl.fromTo(el, { opacity: 0, scale: 0.94, y: 16 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "power3.out" }, t0);
+          }
+        }
+
+        function exit(cue) {
+          if (cue.out == null) return;
+          const el = q(cue.id);
+          const t1 = cue.out;
+          const d = cue.outDur;
+          if (cue.id === "t-s1") {
+            // a câmera atravessa o texto
+            tl.to(el, { scale: 1.45, opacity: 0, filter: "blur(14px)", duration: d, ease: "power2.in" }, t1);
+            return;
+          }
+          if (cue.exit === "slice") {
+            // a linha que atravessa o centro “corta” a frase da esquerda para a direita
+            tl.to(el, { clipPath: "inset(0% 0% 0% 100%)", duration: d, ease: "power1.inOut" }, t1);
+            tl.to(chars(el), { y: -14, filter: "blur(6px)", duration: d, stagger: 0.008, ease: "power1.in" }, t1);
+            return;
+          }
+          if (cue.exit === "snap") {
+            tl.to(el, { opacity: 0, x: -40, filter: "blur(8px)", duration: d, ease: "power3.in" }, t1);
+            return;
+          }
+          if (cue.exit === "dissolve") {
+            // congelado, o texto perde a luz e se desfaz como poeira prateada
+            const cs = chars(el);
+            tl.to(el, { opacity: 0.55, duration: 0.35, ease: "power1.out" }, t1);
+            cs.forEach((c) => {
+              const a = rnd() * Math.PI * 2;
+              const r = 40 + rnd() * 110;
+              tl.to(
+                c,
+                { x: Math.cos(a) * r, y: Math.sin(a) * r, opacity: 0, filter: "blur(10px)", duration: d, ease: "power2.in" },
+                t1 + 0.1 + rnd() * 0.35,
+              );
+            });
+            return;
+          }
+          tl.to(chars(el).length ? chars(el) : el, { opacity: 0, y: -22, filter: "blur(8px)", duration: d, stagger: 0.012, ease: "power2.in" }, t1);
+        }
+
+        T.text.forEach((cue) => {
+          enter(cue);
+          exit(cue);
+        });
+
+        // ruído de grão determinístico (gerado uma vez)
+        const g = document.createElement("canvas");
+        g.width = g.height = 256;
+        const gx = g.getContext("2d");
+        const img = gx.createImageData(256, 256);
+        for (let i = 0; i < img.data.length; i += 4) {
+          const v = Math.floor(rnd() * 255);
+          img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+          img.data[i + 3] = 255;
+        }
+        gx.putImageData(img, 0, 0);
+        document.getElementById("grain").style.backgroundImage = `url(${g.toDataURL()})`;
+
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
